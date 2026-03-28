@@ -1,7 +1,10 @@
 import axios from 'axios'
 
+const PROD_URL = 'https://online-event-registration-backend.onrender.com/api'
+const DEV_URL = '/api'
+
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: import.meta.env.PROD ? PROD_URL : DEV_URL,
   headers: { 'Content-Type': 'application/json' }
 })
 
